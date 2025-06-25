@@ -1,0 +1,110 @@
+:root {
+  --color-bg: #f0f2f5;
+  --color-white: #ffffff;
+  --color-primary: #2d9cdb;
+  --color-success: #27ae60;
+  --color-warning: #f39c12;
+  --color-danger: #e74c3c;
+  --color-text: #2c3e50;
+  --color-border: #dfe6e9;
+
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color-scheme: light;
+  background-color: var(--color-bg);
+}
+
+body {
+  margin: 0;
+  padding: 2rem;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+  border-bottom: 2px solid var(--color-border);
+  padding-bottom: 0.5rem;
+}
+
+form {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+input,
+select {
+  padding: 0.6rem 0.8rem;
+  margin: 0.5rem 0.5rem 0.5rem 0;
+  width: 220px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 4px rgba(45, 156, 219, 0.5);
+}
+
+button {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1rem;
+  margin-left: 0.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+button.save {
+  background-color: var(--color-success);
+  color: white;
+}
+
+button.update {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+button.cancel {
+  background-color: var(--color-warning);
+  color: white;
+}
+
+button.delete {
+  background-color: transparent;
+  color: var(--color-danger);
+  border: 1px solid var(--color-danger);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background: var(--color-white);
+  margin-bottom: 0.75rem;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

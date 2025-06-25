@@ -1,0 +1,41 @@
+version: "3.9"
+
+services:
+  backend:
+    build:
+      context: ./backend  # El directorio donde se encuentra el proyecto de Spring Boot
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/herramientasdb?useSSL=false&allowPublicKeyRetrieval=true
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=123456
+    depends_on:
+      - mysql
+    networks:
+      - backend-network
+    command: sh -c "until nc -z mysql 3306; do sleep 1; done; java -jar demo.jar"
+
+  frontend:
+    build:
+      context: ./crud-react  # Asegúrate de que el servicio apunte a la carpeta correcta
+    ports:
+      - "5173:5173"   # Puerto expuesto para Vite
+    networks:
+      - backend-network
+    depends_on:
+      - backend
+
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: herramientasdb
+    ports:
+      - "3306:3306"
+    networks:
+      - backend-network
+
+networks:
+  backend-network:
+    driver: bridge
